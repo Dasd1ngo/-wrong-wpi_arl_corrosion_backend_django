@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.mainController">
+   <children>
+      <Label fx:id="lblDepCity" layoutX="93.0" layoutY="91.0" text="Departing City" />
+      <Label fx:id="lblArvCity" layoutX="360.0" layoutY="92.0" text="Arriving City" />
+      <TextField fx:id="txtDepCity" layoutX="93.0" layoutY="125.0" text="BOS" />
+      <TextField fx:id="txtArvCity" layoutX="360.0" layoutY="126.0" text="ORD" />
+      <Label fx:id="lblDepDate" layoutX="594.0" layoutY="92.0" text="Departure Date" />
+      <Label fx:id="lblRtrnDate" layoutX="857.0" layoutY="92.0" text="Returning Date" />
+      <DatePicker fx:id="dtpkDepDate" layoutX="590.0" layoutY="126.0" prefHeight="27.0" prefWidth="167.0" promptText="5/20/2018" />
+      <DatePicker fx:id="dtpkRtrnDate" layoutX="855.0" layoutY="126.0" prefHeight="27.0" prefWidth="167.0" />
+      <Label fx:id="lblPrefClass" layoutX="94.0" layoutY="165.0" text="Preferred Class" />
+      <Label fx:id="lblTypeOfTrip" layoutX="91.0" layoutY="27.0" text="Oneway/RoundTrip" />
+      <Button fx:id="btnSearch" layoutX="95.0" layoutY="251.0" mnemonicParsing="false" onAction="#SearchFlight" text="Search" />
+      <ComboBox fx:id="cBoxTypeOfTrip" layoutX="96.0" layoutY="55.0" prefWidth="150.0" />
+      <ComboBox fx:id="cBoxPrefClass" layoutX="94.0" layoutY="197.0" prefWidth="150.0" />
+      <Label fx:id="lblStatus" layoutX="302.0" layoutY="36.0" text="note" textFill="#d35d5d">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TableView fx:id="resultTable" layoutX="165.0" layoutY="288.0" prefHeight="314.0" prefWidth="791.0">
+        <columns>
+          <TableColumn fx:id="flightNumberCol" prefWidth="75.0" text="Flight#" />
+            <TableColumn fx:id="colDepartureTime" prefWidth="120.0" text="Departure Time" />
+            <TableColumn fx:id="colArrivalTime" prefWidth="108.0" text="Arrival Time" />
+            <TableColumn fx:id="colFirstClassPrice" prefWidth="117.0" text="First Class Price" />
+            <TableColumn fx:id="colTixAvailableFirstClass" prefWidth="124.0" text="Tickets Available" />
+            <TableColumn fx:id="coachPriceCol" prefWidth="105.0" text="Coach Price" />
+            <TableColumn fx:id="colTixAvailableCoach" prefWidth="140.0" text="Tickets Available" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnReserveTicket" layoutX="91.0" layoutY="634.0" mnemonicParsing="false" onAction="#bookFlight" text="Reserve Ticket" />
+   </children>
+</AnchorPane>
