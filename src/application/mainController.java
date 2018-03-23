@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Optional;
 
 import org.w3c.dom.NodeList;
 
@@ -14,7 +15,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -23,6 +26,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import xmlParser.ServerInterface;
 import xmlParser.xmlParserFlight;
@@ -187,11 +191,27 @@ public class mainController {
 	
 	public void bookFlight (ActionEvent event) {
 		//type of trip
+		
 		System.out.println(selectedLeg);
 		if(selectedLeg != null) {
 			ServerInterface.INSTANCE.lock("BombSquad");
-			ServerInterface.INSTANCE.TicketDeduction("BombSquad", selectedLeg, "FirstClass" );
-			ServerInterface.INSTANCE.unlock("BombSquad");
+			
+			
+			Alert alert = new Alert(AlertType.CONFIRMATION);
+			alert.setTitle("Confirmation");
+			alert.setHeaderText("Do you wanna proceed and book this selected tickets");
+			alert.setContentText("Are you ok with this?");
+
+			Optional<ButtonType> result = alert.showAndWait();
+			if (result.get() == ButtonType.OK){
+				ServerInterface.INSTANCE.TicketDeduction("BombSquad", selectedLeg, "FirstClass" );
+				ServerInterface.INSTANCE.unlock("BombSquad");
+			} else {
+			    // ... user chose CANCEL or closed the dialog
+			}
+			
+			
+			
 		}
 		
 	
