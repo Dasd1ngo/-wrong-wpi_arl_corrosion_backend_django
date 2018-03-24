@@ -13,7 +13,7 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.Date;
 
-import application.Leg;
+import flights.Leg;
 import utils.QueryFactory;
 
 

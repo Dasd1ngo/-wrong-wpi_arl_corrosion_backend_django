@@ -1,4 +1,4 @@
-package application;
+package flights;
 
 import java.sql.Time;
 import java.time.LocalDateTime;

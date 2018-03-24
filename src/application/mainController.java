@@ -30,6 +30,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import xmlParser.ServerInterface;
 import xmlParser.xmlParserFlight;
+import flights.Leg;
 
 public class mainController {
 	

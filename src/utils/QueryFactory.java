@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
 
-import application.Leg;
+import flights.Leg;
 
 /**
  * @author blake and Anqi

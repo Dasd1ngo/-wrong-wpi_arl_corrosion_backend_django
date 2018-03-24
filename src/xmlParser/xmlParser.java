@@ -18,7 +18,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
 
-import application.Leg;
+import flights.Leg;
 
 public class xmlParser {
     private NodeList nodeList;
